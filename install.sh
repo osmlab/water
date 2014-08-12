@@ -1,10 +1,9 @@
 apt-get update
-apt-get install -y unzip htop
 
 echo "- installing postgres + postgis"
 apt-get install -y postgres-xc-client
-apt-get install -y libpq-dev libgeos-c1 libgeos++-dev proj-bin mapnik-utils postgresql-9.3 postgresql-9.3-postgis-2.1 postgresql-contrib-9.3 unzip postgresql-client-9.3 postgresql-common postgresql-client-common postgresql-plpython-9.3
-sudo apt-get install -y git vim htop bzip2 curl gdal-bin s3cmd
+apt-get install -y postgresql-9.3 postgresql-9.3-postgis-2.1 postgresql-contrib-9.3 postgresql-client-9.3 postgresql-common postgresql-client-common postgresql-plpython-9.3
+sudo apt-get install -y unzip git vim htop default-jre
 
 echo "- setting up postgres permissions + database"
 chmod a+rx $HOME
@@ -48,8 +47,11 @@ cd /var/lib/postgresql/9.3
 ln -s /mnt/data/postgres/main main
 
 echo "- restarting postgres"
-/etc/init.d/postgresql start
+/etc/init.d/postgresql restart
 
 echo "- install osmosis"
 wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.zip
 unzip osmosis-latest.zip -d osmosis
+
+echo "CREATE EXTENSION hstore;" | psql -U postgres osm
+psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql
