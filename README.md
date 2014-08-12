@@ -11,4 +11,4 @@ Quick setup of an Osmosis database
 - `cd water`
 - `make install`
 - download your pbf
-- 
+- ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"
