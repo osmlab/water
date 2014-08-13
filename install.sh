@@ -55,3 +55,4 @@ unzip osmosis-latest.zip -d osmosis
 
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
 psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql
+psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6_linestring.sql

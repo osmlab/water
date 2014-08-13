@@ -10,5 +10,5 @@ Quick setup of an Osmosis database
 - `git clone https://github.com/osmlab/water.git`
 - `cd water`
 - `make install`
-- download your pbf
-- ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"
+- download your pbf:
+- `./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"`
