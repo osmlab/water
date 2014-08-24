@@ -9,8 +9,8 @@ Quick setup of an Osmosis database
 - `apt-get install -y git make`
 - `git clone https://github.com/osmlab/water.git`
 - `cd water`
-- `sh` `<your instance size>.install.sh'
+- `sh` `<your instance size>.install.sh`
     - `c3.4xlarge.install.sh`
     - `i2.xlarge.install.sh`
 - download your pbf:
-- `./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"`
+- `JAVACMD_OPTIONS="-Djava.io.tmpdir=/mnt/tmp" ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"`

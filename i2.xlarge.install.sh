@@ -37,6 +37,7 @@ ln -s /mnt/data/postgres/main main
 echo "- install osmosis"
 wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.zip
 unzip osmosis-latest.zip -d osmosis
+mkdir -p /mnt/tmp
 
 sudo -u postgres createdb -U postgres -T template_postgis -E UTF8 osm
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
