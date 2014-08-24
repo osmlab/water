@@ -3,12 +3,14 @@ water
 
 Quick setup of an Osmosis database
 
-- Create your instance
+- create your instance
   - I'm using `ami-a6926dce` and `c3.4xlarge` for now
 - `sudo su && cd ~/`
 - `apt-get install -y git make`
 - `git clone https://github.com/osmlab/water.git`
 - `cd water`
-- `make install`
+- `sh` `<your instance size>.install.sh'
+    - `c3.4xlarge.install.sh`
+    - `i2.xlarge.install.sh`
 - download your pbf:
 - `./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres"`
