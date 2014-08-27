@@ -50,7 +50,7 @@ echo "- restarting postgres"
 /etc/init.d/postgresql restart
 
 echo "- install osmosis"
-wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-latest.zip
+wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-0.43.1.zip
 unzip osmosis-latest.zip -d osmosis
 mkdir -p /mnt/tmp
 
