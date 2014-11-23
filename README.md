@@ -13,4 +13,4 @@ Quick setup of an Osmosis database
     - `c3.4xlarge.install.sh`
     - `i2.xlarge.install.sh`
 - download your pbf
-- `JAVACMD_OPTIONS="-Djava.io.tmpdir=/mnt/tmp -Xmx29G" ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres" nodeLocationStoreType="InMemory"`
+- `JAVACMD_OPTIONS="-Djava.io.tmpdir=/mnt/data/tmp -Xmx29G" ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql user="postgres" nodeLocationStoreType="InMemory"`

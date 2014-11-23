@@ -52,7 +52,7 @@ echo "- restarting postgres"
 echo "- install osmosis"
 wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-0.43.1.zip
 unzip osmosis-0.43.1.zip -d osmosis
-mkdir -p /mnt/tmp
+mkdir -p /mnt/data/tmp
 
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
 psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql
