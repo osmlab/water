@@ -51,7 +51,7 @@ echo "- restarting postgres"
 
 echo "- install osmosis"
 wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-0.43.1.zip
-unzip osmosis-latest.zip -d osmosis
+unzip osmosis-0.43.1.zip -d osmosis
 mkdir -p /mnt/tmp
 
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
