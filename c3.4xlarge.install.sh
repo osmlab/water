@@ -14,8 +14,6 @@ sudo -u postgres psql -U postgres -d template_postgis -c "GRANT ALL ON geometry_
 sudo -u postgres psql -U postgres -d template_postgis -c "GRANT ALL ON geography_columns TO PUBLIC;"
 sudo -u postgres psql -U postgres -d template_postgis -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
 
-sudo -u postgres createdb -U postgres -T template_postgis -E UTF8 osm
-
 echo "- setting permissions"
 sh -c 'echo "
 local all postgres trust
@@ -52,8 +50,7 @@ echo "- restarting postgres"
 echo "- install osmosis"
 wget http://bretth.dev.openstreetmap.org/osmosis-build/osmosis-0.43.1.zip
 unzip osmosis-0.43.1.zip -d osmosis
-mkdir -p /mnt/data/tmp
+mkdir -p /mnt/data/tmp/pgimport
 
+sudo -u postgres createdb -U postgres -T template_postgis -E UTF8 osm
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
-psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql
-psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6_linestring.sql
