@@ -16,7 +16,7 @@ Quick setup of an Osmosis database
 - optionally filter data, etc..
     - `./osmosis/bin/osmosis --read-pbf-fast <pbf file> --tf accept-ways highway=* --used-node --write-pbf <new pbf file>`
 - create a dump that will load into postgis
-    - `JAVACMD_OPTIONS="-Djava.io.tmpdir=/mnt/data/tmp -Xmx29G" ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql-dump director="/mnt/data/tmp/pgimport" nodeLocationStoreType="InMemory"`
+    - `JAVACMD_OPTIONS="-Djava.io.tmpdir=/mnt/data/tmp -Xmx29G" ./osmosis/bin/osmosis --read-pbf-fast <pbf file> --write-pgsql-dump directory="/mnt/data/tmp/pgimport" nodeLocationStoreType="InMemory"`
 - load the dump
     - `cd /mnt/data/tmp/pgimport`
     - `psql -U postgres -d osm -f /home/ubuntu/water/osmosis/script/pgsnapshot_load_0.6.sql`
