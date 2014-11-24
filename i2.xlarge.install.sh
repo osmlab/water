@@ -41,3 +41,4 @@ mkdir -p /mnt/data/tmp/pgimport
 
 sudo -u postgres createdb -U postgres -T template_postgis -E UTF8 osm
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
+psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql

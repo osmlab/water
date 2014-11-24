@@ -3,7 +3,7 @@ apt-get update
 echo "- installing postgres + postgis"
 apt-get install -y postgres-xc-client
 apt-get install -y postgresql-9.3 postgresql-9.3-postgis-2.1 postgresql-contrib-9.3 postgresql-client-9.3 postgresql-common postgresql-client-common postgresql-plpython-9.3
-sudo apt-get install -y unzip git vim htop default-jre
+apt-get install -y unzip git vim htop default-jre
 
 echo "- setting up postgres permissions + database"
 chmod a+rx $HOME
@@ -38,7 +38,6 @@ mkfs.ext4 /dev/mapper/volgroup-lvoldata
 
 mkdir -p /mnt/data/postgres
 mount /dev/mapper/volgroup-lvoldata /mnt/data
-mkdir /mnt/data/postgres
 mv /var/lib/postgresql/9.3/main/ /mnt/data/postgres/
 rm /var/lib/postgresql/9.3/main
 cd /var/lib/postgresql/9.3
@@ -54,3 +53,4 @@ mkdir -p /mnt/data/tmp/pgimport
 
 sudo -u postgres createdb -U postgres -T template_postgis -E UTF8 osm
 echo "CREATE EXTENSION hstore;" | psql -U postgres osm
+psql -U postgres -d osm -f osmosis/script/pgsnapshot_schema_0.6.sql

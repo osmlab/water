@@ -9,7 +9,7 @@ Quick setup of an Osmosis database
 - `apt-get install -y git make`
 - `git clone https://github.com/osmlab/water.git`
 - `cd water`
-- `sh` `<your instance size>.install.sh`
+- `sudo sh` `<your instance size>.install.sh`
     - `c3.4xlarge.install.sh`
     - `i2.xlarge.install.sh`
 - download your pbf
